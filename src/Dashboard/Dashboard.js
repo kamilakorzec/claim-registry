@@ -6,7 +6,7 @@ import Entry from './Entry/Entry'
 
 const dashboardColumns = [
     {accessor: 'name', Header: 'Name'},
-    {accessor: 'email', Header: 'E mail'},
+    {accessor: 'email', Header: 'E-mail'},
     {accessor: 'policy', Header: 'Policy ID'},
     {accessor: 'claim_type', Header: 'Claim Type'},
     {accessor: 'amount', Header: 'Claim Amount'},

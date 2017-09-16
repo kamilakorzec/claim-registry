@@ -9,13 +9,14 @@
   color: white;
 }
 
-.App-header a {
+.App-header .nav-item {
   color: white;
   margin-left: 15px;
   text-transform: uppercase;
+  cursor: pointer;
 }
 
-.App-header a:hover {
+.App-header .nav-item:hover {
   color: #ddd;
   text-decoration: none;
 }
