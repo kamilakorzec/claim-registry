@@ -3,7 +3,7 @@ import { Route } from 'react-router-dom';
 
 import Navigation from './Navigation/Navigation';
 import Dashboard from './Dashboard/Dashboard';
-import Form from './Form/Form'
+import ClaimForm from './Form/Form'
 
 import './App.css';
 
@@ -15,7 +15,7 @@ class App extends Component {
           <Navigation />
         </div>
           <Route path={'/dashboard'} component={Dashboard} />
-          <Route path={'/form'} component={Form} />
+          <Route path={'/form'} component={ClaimForm} />
       </div>
     );
   }
