@@ -21,8 +21,8 @@ module.exports = function(app, db) {
 
     app.put('/claims/:id', (req, res) => {
         const ObjectID = require('mongodb').ObjectID;
-        console.log(req.params)
         const find = {'_id': new ObjectID(req.params.id)};
+        req.body._id = new ObjectID(req.params.id);
         db.collection('claims', (err, collection) => collection.update(find, req.body, (err, result) => {
             if (err) {
                 res.send({'error': 'An error has occurred'});

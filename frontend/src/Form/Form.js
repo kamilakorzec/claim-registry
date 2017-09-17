@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Form, Input, Select } from 'formsy-react-components';
+import axios from 'axios';
 
 import './Form.css'
 
@@ -15,7 +16,7 @@ class ClaimForm extends Component {
     render() {
         return (
             <div className="col-sm-12 form">
-                <Form onSubmit={() => {}} className="col-sm-12">
+                <Form onSubmit={this.submitData} className="col-sm-12">
                     <Input name="name" type="text" label="Name" />
                     <Input name="email" type="email" label="E-mail address" />
                     <Input name="policy" type="text" label="Policy ID" />
@@ -23,10 +24,15 @@ class ClaimForm extends Component {
                     <Input name="amount" type="number" label="Claim amount" />
                     <Input name="date" type="date" label="Date occurred" />
 
-                    <button onClick={() => {}} className="btn btn-primary pull-right">Submit claim</button>
+                    <button onClick={this.submitData} className="btn btn-primary pull-right">Submit claim</button>
                 </Form>
             </div>
         );
+    }
+
+    submitData(data) {
+        const request = Object.assign({}, data, {status: "new"});
+        axios.post('http://localhost:8000/claims', request).then(() => window.location.reload())
     }
 }
 
