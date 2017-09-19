@@ -15,7 +15,7 @@ class Dashboard extends Component {
     render() {
         return (
             <div className="dashboard col-sm-12">
-                <table className="col-sm-12">
+                <table className="col-sm-12 table">
                     <thead>
                         <th>Name</th>
                         <th>E-mail</th>
@@ -25,10 +25,20 @@ class Dashboard extends Component {
                         <th>Date occurred</th>
                         <th>Status</th>
                     </thead>
-                    <tbody>{this.state.data.map((entry) => <Entry key={entry._id} entry={entry}/>)}</tbody>
+                    <tbody>{this.state.data.map((entry) =>
+                        <Entry key={entry._id} entry={entry} update={(entry, status) => {this.updateList(entry, status)}}/>)}
+                    </tbody>
                 </table>
             </div>
         );
+    }
+
+    updateList(entry, status) {
+        const data = this.state.data;
+        data[data.indexOf(entry)].status = status;
+
+        this.setState({data: data})
+
     }
 
     componentDidMount() {

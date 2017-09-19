@@ -17,7 +17,7 @@ class Actions extends Component {
         const entry = this.props.entry;
         const request = Object.assign({}, entry, {status});
 
-        axios.put(`${baseUrl}/${entry._id}`, request)
+        axios.put(`${baseUrl}/${entry._id}`, request).then(() => this.props.updateStatus(entry, status));
     }
 }
 
